@@ -3,6 +3,8 @@ session_start();
 
 include_once 'funkcije.php';
 
+$rezultataPoStranici=10;
+
 $naslovAplikacije= "Skladiste APP";
 
 switch ($_SERVER["HTTP_HOST"]){
@@ -16,7 +18,7 @@ switch ($_SERVER["HTTP_HOST"]){
 	case 'ivannovak92.byethost7.com':
 		$putanjaAPP="/LjetniRad/";
 		$mysqlHost="sql113.byethost7.com";
-		$mysqlBaza="skladiste";
+		$mysqlBaza="b7_20136660_skladiste";
 		$mysqlKorisnik="b7_20136660";
 		$mysqlLozinka="password";
 		break;
