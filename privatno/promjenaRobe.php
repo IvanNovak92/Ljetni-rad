@@ -17,9 +17,9 @@ if(isset($_POST["sifra"])){
 		$uvjet=$_POST["uvjet"];
 		unset($_POST["uvjet"]);
 	}
-	$izraz=$veza->prepare("update roba set vrsta robe=:vrsta_robe, 
-							datum berbe=:datum_berbe, datum skladistenja=:datum_skladistenja, vrsta boxa=:vrsta_boxa,
-							komad boxa=:komad_boxa, tezina=:tezina  where sifra=:sifra");
+	$izraz=$veza->prepare("update roba set vrsta_robe=:vrsta_robe, 
+							datum_berbe=:datum_berbe, datum_skladistenja=:datum_skladistenja, vrsta_boxa=:vrsta_boxa,
+							komad_boxa=:komad_boxa, tezina=:tezina  where sifra=:sifra");
 	$izraz->execute($_POST);
 	
 	header("location: roba.php?uvjet=" . $uvjet);
@@ -55,7 +55,7 @@ if(isset($_POST["sifra"])){
 							<input name="komad_boxa" id="komad_boxa" type="number"min="1" max="5" value="<?php echo $roba->komad_boxa; ?>" />
 							<br />
 							<label for="tezina">Težina</label>
-							<input 	name="tezina" id="tezina" type="number" max="2000" value="<?php echo $roba->tezina; ?>/>
+							<input 	name="tezina" id="tezina" type="number" max="2000" value="<?php echo $roba->tezina; ?>"/>
 							<br />
 							<input type="submit" class="succes button expanded" value="Promjeni"/>
 							<br />

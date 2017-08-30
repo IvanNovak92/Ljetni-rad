@@ -17,7 +17,7 @@ $uvjet = isset($_GET["uvjet"]) ? $_GET["uvjet"] : "";
 								value="<?php echo $uvjet; ?>"/>	
 							</form>
 						</div>
-						<div class="small-4 large-6 columns">
+						<div class="small-4 large-12 columns">
 							<a href="unosRobe.php" class="success button expanded">Dodaj robu</a>
 						</div>
 					</div>
@@ -71,6 +71,7 @@ $uvjet = isset($_GET["uvjet"]) ? $_GET["uvjet"] : "";
 				</div>
 			</div>
 		</div>
+		
 		
 		<?php	include_once '../skripte.php'; ?>
 		
