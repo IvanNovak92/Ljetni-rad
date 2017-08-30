@@ -2,8 +2,8 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     
     <title><?php echo $naslovAplikacije;  ?></title>
-    <link rel="stylesheet" href="<?php echo $putanjaApp;  ?>css/foundation.css">
-    <link rel="stylesheet" href="<?php echo $putanjaApp;  ?>css/app.css">
+    <link rel="stylesheet" href="<?php echo $putanjaAPP;  ?>css/foundation.css">
+    <link rel="stylesheet" href="<?php echo $putanjaAPP;  ?>css/app.css">
     
 <meta property="og:site_name" content="<?php echo $naslovAplikacije;  ?>" />
 <meta property="og:type" content="web application" />
@@ -25,5 +25,5 @@
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="<?php echo $putanjaAPP;  ?>img/favicon/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
-<meta name="viewport" content="user-scalable=0;"/>
-<meta name="viewport" content="width=device-width;" />
+<meta name="viewport" content="<?php echo $naslovAplikacije;  ?>user-scalable=0;"/>
+<meta name="viewport" content="<?php echo $naslovAplikacije;  ?>width=device-width;" />
