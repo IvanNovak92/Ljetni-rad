@@ -4,7 +4,7 @@
 </head>
 <body bgcolor="E9967A">
 	<div class="row">
-			<div class="large-12 columns">
+			<div class="large-6 large-centered columns">
 				<div class="callout">
 				
 				<div align="center" class="row">
@@ -23,14 +23,14 @@
 							echo "Odjavljeni ste!";
 						}
 						 ?>
-						 <form method="post" action="<?php echo $putanjaAPP;  ?>autorizacija.php">
+						 <form method="post" action="<?php echo $putanjaAPP;  ?>autorizacija.php" style>
 						 <label for="korisnik">Email</label>
 						 <input type="text" name="korisnik" id="korisnik" 
 						 value="<?php echo isset($_GET["korisnik"]) ? $_GET["korisnik"] : "" ;  ?>" />
 						 <label for="lozinka">Lozinka</label>
 						
 						 <input type="password"name="lozinka" id="lozinka" />
-						 <input type="submit" class="button expanded" value="Autorizacija" />
+						 <input type="submit" class="button expanded" style="background-color: green" value="Autorizacija" />
 						 	
 						 </form>
 						 <?php include_once 'skripte.php';   ?>

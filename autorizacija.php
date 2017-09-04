@@ -9,7 +9,7 @@ $izraz->execute(array("email"=>$_POST["korisnik"], "lozinka" =>$_POST["lozinka"]
 $operater= $izraz->fetch(PDO::FETCH_OBJ);
 if($operater!=null){
 	$_SESSION["logiran"]=$operater;
-	header("location:" . $putanjaAPP . "privatno/pindex.php");
+	header("location:" . $putanjaAPP . "privatno/roba/pindex.php");
 }
 else{
 	header("location:" . $putanjaAPP . "login.php?neuspio&korisnik=" . $_POST["korisnik"]);

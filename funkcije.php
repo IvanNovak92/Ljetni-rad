@@ -9,7 +9,7 @@ function provjeraLogin() {
 
 function provjeraUloga($uloga){
 	if( !(isset($_SESSION["logiran"]) && $_SESSION["logiran"]->uloga===$uloga)){
-		header("location: " . $GLOBALS["putanjaAPP"] . "privatno/oindex.php");
+		header("location: " . $GLOBALS["putanjaAPP"] . "privatno/roba/pindex.php");
 		exit ;
 	}
 }

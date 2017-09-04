@@ -9,7 +9,8 @@ include_once 'konfiguracija.php';
 		?>
 	</head>
 	<body bgcolor="E9967A">
-		<div class="row">
+		<div class="row" >
+			<div class="large-6 large-centered columns">
 		<h1 align="center">Dobrodošli na online vođenje skladišta!</h1>
 		<h2 align="center">Za početak rada se logirajte!</h2>
 		<div align="center">
@@ -19,6 +20,7 @@ include_once 'konfiguracija.php';
 			<a href="https://github.com/IvanNovak92/Ljetni-rad"style="background-color: green" class="button expanded">Link na github kod</a>
 			<br />
 			<br />
+			</div>
 			</div>
 			</div>
 			<div class="row">
