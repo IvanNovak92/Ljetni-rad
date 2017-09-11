@@ -39,7 +39,7 @@ if(isset($_POST["ime"])){
 							
 							<input type="submit" class="button expanded" value="Dodaj"/>
 							
-							<a href="kooperantIndex.php" class="alert button expanded">Prekini unos</a>
+							<a href="index.php" class="alert button expanded">Prekini unos</a>
 							<?php if(isset($unioRedova) && $unioRedova>0):?>
 							<h1 id="unio" class="success button expanded">Uspjesno ste dodali kooperanta</h1>														
 							<?php endif;?>

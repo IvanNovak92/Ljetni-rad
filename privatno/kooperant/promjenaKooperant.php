@@ -21,7 +21,7 @@ if(isset($_POST["sifra"])){
 							ziro_racun=:ziro_racun where sifra=:sifra");
 	$izraz->execute($_POST);
 	
-	header("location: kooperantIndex.php?uvjet=" . $uvjet);
+	header("location: index.php?uvjet=" . $uvjet);
 
 }
 ?>
@@ -52,7 +52,7 @@ if(isset($_POST["sifra"])){
 							<input type="hidden" name="uvjet" value="<?php echo $kooperant->uvjet; ?>" />
 							
 							<?php endif;?>
-							<a href="kooperantIndex.php" class="alert button expanded">Odustani</a>
+							<a href="index.php" class="alert button expanded">Odustani</a>
 						</fieldset>
 					</form>	
 			</div>
