@@ -38,20 +38,17 @@ include_once '../../predlosci/head.php';
 								<th>Datum skladištenja</th>
 								<th>Vrsta boxa</th>
 								<th>Komada boxa</th>
-								<th>Težina robe</th>
-								<th>Vlasnik robe</th>
+								<th>Težina robe</th>						
 							</tr>
 						</thead>
 						<tbody>
 							<?php 
-							$izraz = $veza->prepare("select b.sifra, a.sifra,a.vrsta_robe,a.datum_berbe,a.datum_skladistenja,
-							a.vrsta_boxa,a.komad_boxa,a.tezina,c.ime
-							from 
-							roba a ,roba_kooperant b, kooperant c
-							where a.sifra=b.roba and c.sifra=b.kooperant and 
-							a.vrsta_robe like :uvjet
-							group by a.sifra,a.vrsta_robe,a.datum_berbe,a.datum_skladistenja,
-							a.vrsta_boxa,a.komad_boxa,a.tezina,c.ime ");
+							$izraz = $veza->prepare("select sifra,vrsta_robe,datum_berbe,datum_skladistenja,
+							vrsta_boxa,komad_boxa
+							from roba where 
+							vrsta_robe like :uvjet
+							group by sifra,vrsta_robe,datum_berbe,datum_skladistenja,
+							vrsta_boxa,komad_boxa");
 							$uvjet="%" . $uvjet . "%";
 							$izraz->execute(array("uvjet"=>$uvjet));
 							$rezultati = $izraz->fetchAll(PDO::FETCH_OBJ);
@@ -63,13 +60,13 @@ include_once '../../predlosci/head.php';
 								<td><?php echo $red -> datum_skladistenja; ?></td>
 								<td><?php echo $red -> vrsta_boxa; ?></td>
 								<td><?php echo $red -> komad_boxa; ?></td>
-								<td><?php echo $red -> tezina; ?></td>
-								<td><?php echo $red -> ime; ?></td>
+								
+							
 								<td><a href="promjenaRobe.php?sifra=<?php echo $red -> sifra;
 
-									if (isset($_GET["uvjet"])) {
-										echo "&uvjet=" . $_GET["uvjet"];
-									}
+								if (isset($_GET["uvjet"])) {
+									echo "&uvjet=" . $_GET["uvjet"];
+								}
 								?>">Promjeni</a> 
 								
 								

@@ -8,7 +8,8 @@ if(isset($_POST["vrsta_robe"])){
 	}
 	
 	if(count($greska)==0){
-		$izraz=$veza->prepare("insert into roba (vrsta_robe,datum_berbe,datum_skladistenja,vrsta_boxa,komad_boxa,tezina) values (:vrsta_robe,:datum_berbe,:datum_skladistenja,:vrsta_boxa,:komad_boxa,:tezina)");
+		$izraz=$veza->prepare("insert into roba (vrsta_robe,datum_berbe,datum_skladistenja,vrsta_boxa,komad_boxa)
+		 values (:vrsta_robe,:datum_berbe,:datum_skladistenja,:vrsta_boxa,:komad_boxa)");
 		$unioRedova = $izraz->execute($_POST);
 	}
 }
@@ -26,13 +27,14 @@ if(isset($_POST["vrsta_robe"])){
 						<fieldset class="fieldset">
 							<legend>Unosni podaci</legend>
 							
-							<label id="lvrsta_robe" for="vrsta_robe">Vrsta Robe</label>
+							<label id="vrsta_robe" for="vrsta_robe">Vrsta Robe</label>
 							<input <?php 
 							if(isset($greske["vrsta_robe"])){
 								echo " style=\"background-color: #f7e4e1\" ";
 							}
 							?> 
-							name="vrsta_robe" id="vrsta_robe" value="<?php echo isset($_POST["vrsta_robe"]) ? $_POST["vrsta_robe"] : "" ?>" type="text" />
+							name="vrsta_robe" id="vrsta_robe" 
+							value="<?php echo isset($_POST["vrsta_robe"]) ? $_POST["vrsta_robe"] : "" ?>" type="text" />
 							<br />
 							<label for="datum_berbe">Datum berbe</label>
 							<input name="datum_berbe" id="datum_berbe" type="date" />
@@ -45,10 +47,7 @@ if(isset($_POST["vrsta_robe"])){
 							<input name="vrsta_boxa" id="vrsta_boxa" type="text" />
 							<br />
 							<label for="komad_boxa">Komada boxa</label>
-							<input name="komad_boxa" id="komad_boxa" type="number" min="1" max="5" />
-							<br />
-							<label for="tezina">Težina</label>
-							<input name="tezina" id="tezina" type="number" min="1" max="2000" />
+							<input name="komad_boxa" id="komad_boxa" type="number" min="1" max="5" />													
 							<br />
 							<input type="submit" class="button expanded" value="Dodaj"/>
 							<br />

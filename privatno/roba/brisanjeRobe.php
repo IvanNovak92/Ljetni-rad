@@ -9,5 +9,5 @@ if(isset($_GET["sifra"])){
 		$uvjet =$_GET["uvjet"];
 	}
 	
-	header("location: privatno/roba.php?uvjet=" . $uvjet);
+	header("location: roba.php?uvjet=" . $uvjet);
 }
