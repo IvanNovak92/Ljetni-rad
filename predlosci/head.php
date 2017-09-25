@@ -1,5 +1,5 @@
 <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+ 
     
     <title><?php echo $naslovAplikacije;  ?></title>
     <link rel="stylesheet" href="<?php echo $putanjaAPP;  ?>css/foundation.css">
@@ -24,6 +24,3 @@
 <link rel="manifest" href="<?php echo $putanjaAPP;  ?>img/favicon/manifest.json">
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="<?php echo $putanjaAPP;  ?>img/favicon/ms-icon-144x144.png">
-<meta name="theme-color" content="#ffffff">
-<meta name="viewport" content="<?php echo $naslovAplikacije;  ?>user-scalable=0;"/>
-<meta name="viewport" content="<?php echo $naslovAplikacije;  ?>width=device-width;" />
