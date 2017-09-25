@@ -27,32 +27,40 @@ include_once '../../predlosci/head.php';
 						<div class="row">
 						<div class="small-4 large-6 columns" align="right">
 					
-							<a href="unosKomora.php" class="success button expanded">Dodaj novu komoru</a>
+							<a href="unosKomora.php" class="success button expanded">
+								Dodaj novu komoru</a>
 							
 					
 						
 					<table style="text-align: left">
 						<thead>
 							<tr>
-								<th>Broj komore</th>
+								<th>Naziv</th>
+								<th>Kapacitet boxeva</th>
+								<th>Komada boxa</th>
 								<th>Polje</th>
+							
 							
 								
 							</tr>
 						</thead>
 						<tbody>
 							<?php 
-							$izraz = $veza->prepare("select sifra,broj_komore,polje
+							$izraz = $veza->prepare("select sifra,naziv,polje,kapacitet_boxeva,
+							komad_box
 							from komora 
-							where broj_komore like :uvjet
-							group by broj_komore,polje");
+							where naziv like :uvjet
+							group by naziv,polje,kapacitet_boxeva,
+							komad_box");
 							$uvjet="%" . $uvjet . "%";
 							$izraz->execute(array("uvjet"=>$uvjet));
 							$rezultati = $izraz->fetchAll(PDO::FETCH_OBJ);
 							foreach ($rezultati as $red) :
 							?>
 							<tr>
-								<td><?php echo $red -> broj_komore; ?></td>
+								<td><?php echo $red -> naziv; ?></td>
+								<td><?php echo $red -> kapacitet_boxeva; ?></td>
+								<td><?php echo $red -> komad_box; ?></td>
 								<td><?php echo $red -> polje; ?></td>
 				
 								

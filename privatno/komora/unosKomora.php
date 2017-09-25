@@ -2,14 +2,14 @@
 
 $greska=array();
 
-if(isset($_POST["broj_komore"])){
-	if(trim($_POST["broj_komore"])===""){
-		$greske["broj_komore"]="Obavezan unos broja komore";
+if(isset($_POST["naziv"])){
+	if(trim($_POST["naziv"])===""){
+		$greske["naziv"]="Obavezan unos broja komore";
 	}
 	
 	if(count($greska)==0){
-		$izraz=$veza->prepare("insert into komora (broj_komore,polje)
-		 values (:broj_komore,:polje)");
+		$izraz=$veza->prepare("insert into komora (naziv,polje,kapacitet_boxeva,komad_box)
+		 values (:naziv,:polje,:kapacitet_boxeva,:komad_box)");
 		$unioRedova = $izraz->execute($_POST);
 	}
 }
@@ -27,17 +27,22 @@ if(isset($_POST["broj_komore"])){
 						<fieldset class="fieldset">
 							<legend>Unosni podaci</legend>
 							
-							<label id="broj_komore" for="broj_komore">Broj komore</label>
-							<input <?php 
-							if(isset($greske["broj_komore"])){
-								echo " style=\"background-color: #f7e4e1\" ";
-							}
-							?> 
-							name="broj_komore" id="broj_komore" 
-							value="<?php echo isset($_POST["broj_komore"]) ? $_POST["broj_komore"] : "" ?>" type="number" />
+							<label id="lnaziv" for="naziv">Naziv komore</label>
+							<input 
+							name="naziv" id="naziv" 
+							value="<?php echo isset($_POST["naziv"]) ? $_POST["naziv"] : "Komora" ?>" 
+							type="text" />
 							<br />
 							<label for="polje">Polje</label>
-							<input name="polje" id="polje" type="text" />
+							<input name="polje" id="polje" type="text" value="X" />
+							<br />
+							
+							<label for="kapacitet_boxeva">Kapacitet boxeva</label>
+							<input name="kapacitet_boxeva" id="kapacitet_boxeva" type="number" />
+							<br />
+							
+							<label for="komad_box">Komada boxa</label>
+							<input name="komad_box" id="komad_box" type="number" />
 							<br />
 			
 							<input type="submit" class="button expanded" value="Dodaj"/>
@@ -51,6 +56,7 @@ if(isset($_POST["broj_komore"])){
 			</div>
 		</div>
 		
+		</script>
 		
 			</body>
 </html>

@@ -16,8 +16,10 @@ if(isset($_POST["sifra"])){
 		$uvjet=$_POST["uvjet"];
 		unset($_POST["uvjet"]);
 	}
-	$izraz=$veza->prepare("update komora set broj_komore=:broj_komore, 
-							polje=:polje where sifra=:sifra");
+	$izraz=$veza->prepare("update komora set naziv=:naziv, 
+							polje=:polje,
+							kapacitet_boxeva=:kapacitet_boxeva,
+							komad_box=:komad_box where sifra=:sifra");
 	$izraz->execute($_POST);
 	
 	header("location: index.php?uvjet=" . $uvjet);
@@ -39,11 +41,27 @@ if(isset($_POST["sifra"])){
 								<fieldset class="fieldset">
 									<legend>Unosni podaci</legend>
 									
-									<label id="broj_komore" for="broj_komore">Broj komore</label>
-									<input 	name="broj_komore" id="broj_komore" value="<?php echo $komora->broj_komore; ?>" type="number" />
+									<label id="naziv" for="naziv">Naziv</label>
+									<input 	name="naziv" id="naziv" 
+									value="<?php echo $komora->naziv; ?>"
+									 type="text" />
 									
-									<label id="polje" for="polje">polje</label>
-									<input 	name="polje" id="polje" value="<?php echo $komora->polje; ?>" type="text" />
+									<label id="polje" for="polje">Polje</label>
+									<input 	name="polje" id="polje" 
+									value="<?php echo $komora->polje; ?>"
+									type="text" />
+																
+									<label id="kapacitet_boxeva" 
+									for="kapacitet_boxeva">Kapacitet boxa</label>
+									<input 	name="kapacitet_boxeva" id="kapacitet_boxeva" 
+									value="<?php echo $komora->kapacitet_boxeva; ?>" 
+									type="number"/>
+									
+									<label id="komad_box" 
+									for="komad_box">Komada boxa</label>
+									<input 	name="komad_box" id="komad_box" 
+									value="<?php echo $komora->komad_box; ?>" 
+									type="number"/>
 									
 									
 									
@@ -52,14 +70,16 @@ if(isset($_POST["sifra"])){
 					
 				<input type="submit" class="succes button expanded" value="Promjeni"/>
 							<br />
-							<input type="hidden" name="sifra" value="<?php echo $komora->sifra; ?>" />
+							<input type="hidden" name="sifra" 
+							value="<?php echo $komora->sifra; ?>" />
+							
 							<?php if(isset($_GET["uvjet"])):?>
-							<input type="hidden" name="uvjet" value="<?php echo $komora->uvjet; ?>" />
+							<input type="hidden" name="uvjet" 
+							value="<?php echo $komora->uvjet; ?>" />
 							
 							<?php endif;?>
 				
-				<input name="odustani" type="submit" class="alert button expanded" value="Odustani"/>
-			
+					<a href="index.php" class="alert button expanded">Odustani</a>			
 			</div>
 		</div>
 		</form>	
