@@ -1,6 +1,5 @@
 <?php include_once '../../konfiguracija.php'; provjeraLogin(); 
 
-
 if(isset($_GET["sifra"])){
 	$izraz=$veza->prepare("select * from roba where sifra=:sifra");
 	$izraz->execute(array("sifra"=>$_GET["sifra"]));
@@ -17,9 +16,8 @@ if(isset($_POST["sifra"])){
 		$uvjet=$_POST["uvjet"];
 		unset($_POST["uvjet"]);
 	}
-	$izraz=$veza->prepare("update roba set vrsta_robe=:vrsta_robe, 
-							datum_berbe=:datum_berbe, datum_skladistenja=:datum_skladistenja, vrsta_boxa=:vrsta_boxa,
-							komad_boxa=:komad_boxa where sifra=:sifra");
+	$izraz=$veza->prepare("update roba set vrsta_robe=:vrsta_robe,naziv=:naziv,
+	jedinica_mjere=:jedinica_mjere where sifra=:sifra");
 	$izraz->execute($_POST);
 	
 	header("location: roba.php?uvjet=" . $uvjet);
@@ -42,20 +40,17 @@ if(isset($_POST["sifra"])){
 							<legend>Obavite izmjenu na polju kojem želite</legend>
 							
 							<label id="lvrsta_robe" for="vrsta_robe">Vrsta robe</label>
-							<input 	name="vrsta_robe" id="vrsta_robe" value="<?php echo $roba->vrsta_robe; ?>" type="text" />
+							<input 	name="vrsta_robe" id="vrsta_robe" 
+							value="<?php echo $roba->vrsta_robe; ?>" type="text" />
 							<br />
 							
-							<label for="datum_berbe">Datum berbe</label>
-							<input name="datum_berbe" id="datum_berbe" type="date" value="<?php echo $roba->datum_berbe; ?>"/>
+							<label id="naziv" for="naziv">Naziv</label>
+							<input 	name="naziv" id="naziv" 
+							value="<?php echo $roba->naziv; ?>" type="text" />
 							<br />
-							<label for="datum_skladistenja">Datum skladistenja</label>
-							<input name="datum_skladistenja" id="datum_skladistenja" type="date" value="<?php echo $roba->datum_skladistenja; ?>"/>
-							<br />
-							<label for="vrsta_boxa">Vrsta boxa</label>
-							<input name="vrsta_boxa" id="vrsta_boxa" type="text" value="<?php echo $roba->vrsta_boxa; ?>" />
-							<br />
-							<label for="komad_boxa">Komada boxa</label>
-							<input name="komad_boxa" id="komad_boxa" type="number"min="1" max="5" value="<?php echo $roba->komad_boxa; ?>" />
+							<label id="jedinica_mjere" for="jedinica_mjere">Jedinica mjere</label>
+							<input 	name="jedinica_mjere" id="jedinica_mjere" 
+							value="<?php echo $roba->jedinica_mjere; ?>" type="text" />
 							<br />
 							<input type="submit" class="succes button expanded" value="Promjeni"/>
 							<br />
