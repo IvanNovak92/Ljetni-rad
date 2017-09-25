@@ -3,9 +3,11 @@ session_start();
 
 include_once 'funkcije.php';
 
-$rezultataPoStranici=10;
+$rezultataPoStranici=5;
 
 $naslovAplikacije= "Skladiste APP";
+
+
 
 switch ($_SERVER["HTTP_HOST"]){
 	case 'localhost':
